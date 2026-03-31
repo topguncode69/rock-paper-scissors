@@ -1,23 +1,72 @@
+ let rock;
+ 
+ let paper;
+ 
+ let scissors;
+ 
+ rock = 'rock';
+ paper = 'paper';
+ scissors = 'scissors';
+ 
+ // computer choice
  function getComputerChoice() {
- let x = (Math.random()*100);
-    if (x >= 0 && x <= 33) {return "rock"; }
-     else if (x > 33 && x <= 66 ) {return "paper";}
-       else {return "scissors";}
+ 
+    let x = (Math.random()*100);
+   
+    if (x >= 0 && x <= 33) {return rock; }
+     else if (x > 33 && x <= 66 ) {return paper;}
+       else {return scissors;}
 }
-console.log(getComputerChoice());
-
+// human choice
 function getHumanChoice() {
     
-    let y = prompt("Whats your move?");
+    let y = prompt("Whats your move?").toLowerCase();
 
     
-         if (y === "rock") {return "rock"; }
+         if (y === rock) {return rock; }
    
-          else if (y === "paper") {return "paper";}
+          else if (y === paper) {return paper;}
     
-             else if (y === "scissors") {return "scissors";}
+             else if (y === scissors) {return scissors;}
 
                  else {alert("THAT MOVE DOESNT EXIST!")}
  }
 
-console.log(getHumanChoice());
+
+let humanScore;
+let computerScore;
+
+humanScore = 0;
+computerScore = 0;
+
+//start the round
+function playRound(humanChoice, computerChoice) {
+ let human = humanChoice.toLowerCase();
+ let computer = computerChoice.toLowerCase();
+
+    if (human===computer) {alert("TIE!"); return;} //returns a tie from the beginning
+    
+    switch (human){
+       case "rock":
+         if(computer === "paper"){ computerScore++; alert("You lose! Paper beats rock!"); return;}
+         if(computer === "scissors") {humanScore++; alert("You Win!"); return;}
+         break;
+       case "paper":
+         if(computer === "scissors"){ computerScore++; alert("You lose! Scissors beat paper!"); return;}
+         if(computer === "rock") {humanScore++; alert("You Win!"); return;}
+         break;
+        case "scissors":
+         if(computer === "rock"){ computerScore++; alert("You lose! Rock beats scissors!"); return;}
+         if(computer === "paper") {humanScore++; alert("You Win!"); return;}
+
+         default : "easter egg";
+
+    }
+
+}
+    
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
