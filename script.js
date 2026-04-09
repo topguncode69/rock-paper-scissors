@@ -70,3 +70,15 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+function playGame() { 
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if (humanScore > computerScore) {alert("Congratulations! You win the game!");}
+    else if (humanScore < computerScore) {alert("You lose the game! Better luck next time!");}
+    else {alert("The game is a tie!");}
+}
+
+playGame();
