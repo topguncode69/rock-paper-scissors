@@ -59,14 +59,12 @@ function playRound(humanChoice, computerChoice) {
          if(computer === "rock"){ computerScore++; alert("You lose! Rock beats scissors!"); return;}
          if(computer === "paper") {humanScore++; alert("You Win!"); return;}
 
-         default : "play the game correctly!"; 
-
     }
 
 }
     
 
-function playGame() { 
+function playGame() {  //plays 5 rounds of the game and keeps score
     for (let i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
